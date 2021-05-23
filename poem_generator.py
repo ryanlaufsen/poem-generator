@@ -11,15 +11,15 @@ def pick_word(wordlist):
 
 def subject(caps):
     def check_vowel():
-        vowel_subject = ["","adjective-placeholder",""]
+        vowel_subject = ["",adjective(),""] if random.randint(0,1) == 1 else ["",""]
         noun = pick_word(common_nouns)
-        matched_list = [v in ['a','e','i','o','u'] for v in noun[0]]
+        vowel_subject[-1] = noun
+        matched_list = [v in ['a','e','i','o','u'] for v in vowel_subject[1][0]]
         if all(matched_list):
             vowel_subject[0] = "an"
         else:
             vowel_subject[0] = "a"
-        vowel_subject[1] = adjective() if random.randint(0,1) == 1 else vowel_subject.remove("adjective-placeholder")
-        vowel_subject[-1] = noun
+        # vowel_subject[1] = adjective() if random.randint(0,1) == 1 else vowel_subject.remove("adjective-placeholder")
         return(' '.join(vowel_subject))
     proper_or_common = random.randint(0,3)
     switcher = {
