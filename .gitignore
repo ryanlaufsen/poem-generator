@@ -1,2 +1,5 @@
 __pycache__
 generated
+build
+dist
+poem_generator.spec
